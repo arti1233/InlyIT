@@ -2,26 +2,28 @@ import Foundation
 import UIKit
 
 protocol BaseRouter {
-    var viewController: UIViewController? { get set }
+    var navigationTabBarController: UITabBarController? { get set }
     var builder: ModuleBuilderProtocol? { get set }
 }
 
 protocol ViewsRouterProtocol: BaseRouter {
-    func initialViewController()
+    func initialViewControllers()
 }
 
 class Router: ViewsRouterProtocol {
-    var viewController: UIViewController?
+    var navigationTabBarController: UITabBarController?
     var builder: ModuleBuilderProtocol?
     
-    init(viewController: UIViewController, builder: ModuleBuilderProtocol) {
-        self.viewController = viewController
+    init(navigationTabBarController: UITabBarController, builder: ModuleBuilderProtocol) {
+        self.navigationTabBarController = navigationTabBarController
         self.builder = builder
     }
     
-    func initialViewController() {
-        guard let builder = builder, let viewController = viewController else { return }
-        let mainVC = viewController
+    func initialViewControllers() {
+        guard let builder = builder, let navigationTabBarController = navigationTabBarController else { return }
+        let mainVC = UINavigationController(rootViewController: builder.createMainVC(title: "News", image: UIImage(systemName: "person.fill")))
+        let favoriteNewsVC = UINavigationController(rootViewController: builder.createFavoriteNewsVC(title: "Favorite", image: UIImage(systemName: "person.fill")))
+        navigationTabBarController.viewControllers = [mainVC, favoriteNewsVC]
     }
 }
 

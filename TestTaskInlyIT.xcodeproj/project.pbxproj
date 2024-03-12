@@ -16,6 +16,16 @@
 		AE5CD9B62BA07ED700968F97 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9B52BA07ED700968F97 /* Router.swift */; };
 		AE5CD9BB2BA07FD300968F97 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9BA2BA07FD300968F97 /* MainPresenter.swift */; };
 		AE5CD9BE2BA07FF400968F97 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9BD2BA07FF400968F97 /* MainRouter.swift */; };
+		AE5CD9C12BA0896D00968F97 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9C02BA0896D00968F97 /* NewsCell.swift */; };
+		AE5CD9C52BA08B6E00968F97 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AE5CD9C42BA08B6E00968F97 /* SnapKit */; };
+		AE5CD9C72BA08B6E00968F97 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = AE5CD9C62BA08B6E00968F97 /* SnapKit-Dynamic */; };
+		AE5CD9C92BA0961200968F97 /* FullNewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9C82BA0961200968F97 /* FullNewsVC.swift */; };
+		AE5CD9CC2BA0989800968F97 /* FavoriteNewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9CB2BA0989800968F97 /* FavoriteNewsVC.swift */; };
+		AE5CD9D02BA0990000968F97 /* FavoriteNewsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9CF2BA0990000968F97 /* FavoriteNewsPresenter.swift */; };
+		AE5CD9D22BA0990C00968F97 /* FavoriteNewsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9D12BA0990C00968F97 /* FavoriteNewsRouter.swift */; };
+		AE5CD9D62BA09BA200968F97 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9D52BA09BA200968F97 /* CustomTabBarController.swift */; };
+		AE5CD9D92BA09CAE00968F97 /* FullNewsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9D82BA09CAE00968F97 /* FullNewsPresenter.swift */; };
+		AE5CD9DB2BA09CC000968F97 /* FullNewsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9DA2BA09CC000968F97 /* FullNewsRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +40,14 @@
 		AE5CD9B52BA07ED700968F97 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		AE5CD9BA2BA07FD300968F97 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		AE5CD9BD2BA07FF400968F97 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		AE5CD9C02BA0896D00968F97 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		AE5CD9C82BA0961200968F97 /* FullNewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullNewsVC.swift; sourceTree = "<group>"; };
+		AE5CD9CB2BA0989800968F97 /* FavoriteNewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNewsVC.swift; sourceTree = "<group>"; };
+		AE5CD9CF2BA0990000968F97 /* FavoriteNewsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNewsPresenter.swift; sourceTree = "<group>"; };
+		AE5CD9D12BA0990C00968F97 /* FavoriteNewsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNewsRouter.swift; sourceTree = "<group>"; };
+		AE5CD9D52BA09BA200968F97 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		AE5CD9D82BA09CAE00968F97 /* FullNewsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullNewsPresenter.swift; sourceTree = "<group>"; };
+		AE5CD9DA2BA09CC000968F97 /* FullNewsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullNewsRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE5CD9C52BA08B6E00968F97 /* SnapKit in Frameworks */,
+				AE5CD9C72BA08B6E00968F97 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,10 +82,11 @@
 		AE5CD99D2BA0725A00968F97 /* TestTaskInlyIT */ = {
 			isa = PBXGroup;
 			children = (
+				AE5CD9B52BA07ED700968F97 /* Router.swift */,
+				AE5CD9B32BA07E5400968F97 /* ModuleBuilder.swift */,
+				AE5CD9D52BA09BA200968F97 /* CustomTabBarController.swift */,
 				AE5CD9B22BA07C8D00968F97 /* Delegate */,
 				AE5CD9B72BA07F9B00968F97 /* Module */,
-				AE5CD9B32BA07E5400968F97 /* ModuleBuilder.swift */,
-				AE5CD9B52BA07ED700968F97 /* Router.swift */,
 				AE5CD9A72BA0725B00968F97 /* Assets.xcassets */,
 				AE5CD9A92BA0725B00968F97 /* LaunchScreen.storyboard */,
 				AE5CD9AC2BA0725B00968F97 /* Info.plist */,
@@ -86,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				AE5CD9B82BA07FA300968F97 /* Main */,
+				AE5CD9CA2BA0984C00968F97 /* FullNews */,
+				AE5CD9CD2BA0989C00968F97 /* FavoriteNews */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -96,6 +119,7 @@
 				AE5CD9B92BA07FB600968F97 /* View */,
 				AE5CD9BC2BA07FD900968F97 /* Presenter */,
 				AE5CD9BF2BA07FFA00968F97 /* Router */,
+				AE5CD9C22BA0897B00968F97 /* Cell */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -124,6 +148,82 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		AE5CD9C22BA0897B00968F97 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				AE5CD9C02BA0896D00968F97 /* NewsCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		AE5CD9CA2BA0984C00968F97 /* FullNews */ = {
+			isa = PBXGroup;
+			children = (
+				AE5CD9D72BA09C9900968F97 /* View */,
+				AE5CD9DC2BA09D6700968F97 /* Presenter */,
+				AE5CD9DD2BA09D7200968F97 /* Router */,
+			);
+			path = FullNews;
+			sourceTree = "<group>";
+		};
+		AE5CD9CD2BA0989C00968F97 /* FavoriteNews */ = {
+			isa = PBXGroup;
+			children = (
+				AE5CD9CE2BA098AA00968F97 /* View */,
+				AE5CD9D32BA0991500968F97 /* Presenter */,
+				AE5CD9D42BA0992000968F97 /* Router */,
+			);
+			path = FavoriteNews;
+			sourceTree = "<group>";
+		};
+		AE5CD9CE2BA098AA00968F97 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AE5CD9CB2BA0989800968F97 /* FavoriteNewsVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AE5CD9D32BA0991500968F97 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				AE5CD9CF2BA0990000968F97 /* FavoriteNewsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		AE5CD9D42BA0992000968F97 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				AE5CD9D12BA0990C00968F97 /* FavoriteNewsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		AE5CD9D72BA09C9900968F97 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AE5CD9C82BA0961200968F97 /* FullNewsVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AE5CD9DC2BA09D6700968F97 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				AE5CD9D82BA09CAE00968F97 /* FullNewsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		AE5CD9DD2BA09D7200968F97 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				AE5CD9DA2BA09CC000968F97 /* FullNewsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,6 +240,10 @@
 			dependencies = (
 			);
 			name = TestTaskInlyIT;
+			packageProductDependencies = (
+				AE5CD9C42BA08B6E00968F97 /* SnapKit */,
+				AE5CD9C62BA08B6E00968F97 /* SnapKit-Dynamic */,
+			);
 			productName = TestTaskInlyIT;
 			productReference = AE5CD99B2BA0725A00968F97 /* TestTaskInlyIT.app */;
 			productType = "com.apple.product-type.application";
@@ -168,6 +272,9 @@
 				Base,
 			);
 			mainGroup = AE5CD9922BA0725A00968F97;
+			packageReferences = (
+				AE5CD9C32BA08B6E00968F97 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = AE5CD99C2BA0725A00968F97 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -194,13 +301,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE5CD9D02BA0990000968F97 /* FavoriteNewsPresenter.swift in Sources */,
+				AE5CD9DB2BA09CC000968F97 /* FullNewsRouter.swift in Sources */,
 				AE5CD9A32BA0725A00968F97 /* MainVC.swift in Sources */,
 				AE5CD9BE2BA07FF400968F97 /* MainRouter.swift in Sources */,
 				AE5CD9BB2BA07FD300968F97 /* MainPresenter.swift in Sources */,
+				AE5CD9C92BA0961200968F97 /* FullNewsVC.swift in Sources */,
+				AE5CD9D22BA0990C00968F97 /* FavoriteNewsRouter.swift in Sources */,
+				AE5CD9D92BA09CAE00968F97 /* FullNewsPresenter.swift in Sources */,
 				AE5CD99F2BA0725A00968F97 /* AppDelegate.swift in Sources */,
 				AE5CD9B62BA07ED700968F97 /* Router.swift in Sources */,
 				AE5CD9A12BA0725A00968F97 /* SceneDelegate.swift in Sources */,
+				AE5CD9C12BA0896D00968F97 /* NewsCell.swift in Sources */,
+				AE5CD9D62BA09BA200968F97 /* CustomTabBarController.swift in Sources */,
 				AE5CD9B42BA07E5400968F97 /* ModuleBuilder.swift in Sources */,
+				AE5CD9CC2BA0989800968F97 /* FavoriteNewsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +528,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AE5CD9C32BA08B6E00968F97 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AE5CD9C42BA08B6E00968F97 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE5CD9C32BA08B6E00968F97 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		AE5CD9C62BA08B6E00968F97 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE5CD9C32BA08B6E00968F97 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AE5CD9932BA0725A00968F97 /* Project object */;
 }
