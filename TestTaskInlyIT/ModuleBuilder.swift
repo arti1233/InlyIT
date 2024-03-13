@@ -10,8 +10,9 @@ class ModuleBuilder: ModuleBuilderProtocol {
   
     func createMainVC(title: String, image: UIImage?) -> UIViewController {
         let view = MainVC()
+        let alamofire = AlamofireProvider()
         let router = MainRouter(builder: self, viewController: view)
-        let presenter = MainPresenter(view: view, router: router)
+        let presenter = MainPresenter(view: view, router: router, alamofireProvider: alamofire)
         view.tabBarItem.title = title
         view.tabBarItem.image = image
         view.presenter = presenter

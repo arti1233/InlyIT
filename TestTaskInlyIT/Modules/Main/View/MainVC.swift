@@ -3,7 +3,7 @@ import Foundation
 import SnapKit
 
 protocol MainVCProtocol: AnyObject {
-    
+    func reloadTableView()
 }
 
 class MainVC: UIViewController, MainVCProtocol {
@@ -12,7 +12,6 @@ class MainVC: UIViewController, MainVCProtocol {
         var tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = .blue
         tableView.separatorStyle = .none
         tableView.register(NewsCell.self, forCellReuseIdentifier: NewsCell.key)
         return tableView
@@ -22,7 +21,7 @@ class MainVC: UIViewController, MainVCProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .brown
+        title = "Новости" 
         view.addSubview(newsTableView)
         updateViewConstraints()
     }
@@ -35,6 +34,10 @@ class MainVC: UIViewController, MainVCProtocol {
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
+    
+    func reloadTableView() {
+        newsTableView.reloadData()
+    }
 }
 
 extension MainVC: UITableViewDelegate {
@@ -43,12 +46,13 @@ extension MainVC: UITableViewDelegate {
 
 extension MainVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        presenter.getAmountMenuPositions()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let newsCell = tableView.dequeueReusableCell(withIdentifier: NewsCell.key) as? NewsCell else { return UITableViewCell() }
         newsCell.updateConstraints()
+        presenter.configureNewsCell(indexPath: indexPath, cell: newsCell)
         return newsCell
     }
     
