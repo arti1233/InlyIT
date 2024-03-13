@@ -51,10 +51,19 @@ extension MainVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let newsCell = tableView.dequeueReusableCell(withIdentifier: NewsCell.key) as? NewsCell else { return UITableViewCell() }
+        newsCell.prepareForReuse()
         newsCell.updateConstraints()
         presenter.configureNewsCell(indexPath: indexPath, cell: newsCell)
         return newsCell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.openFullNewVC(indexPath: indexPath)
+    }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == presenter.getAmountMenuPositions() - 1 && presenter.newsIsLoadIndicator() == false && presenter.getAmountMenuPositions() < presenter.getMaxNews() {
+            presenter.getNextPage()
+        }
+    }
 }

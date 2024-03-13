@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 import SnapKit
+import Kingfisher
 
 protocol NewsCellProtocol {
     func configureNewsCell(news: Results)
@@ -24,6 +25,7 @@ class NewsCell: UITableViewCell, NewsCellProtocol {
     private lazy var icon: UIImageView = {
         var view = UIImageView()
         view.contentMode = .scaleToFill
+        view.image = UIImage(systemName: "person.fill")
         return view
     }()
     
@@ -55,10 +57,23 @@ class NewsCell: UITableViewCell, NewsCellProtocol {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureNewsCell(news: Results) {
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        title.text = ""
+        pubDate.text = ""
         icon.image = UIImage(systemName: "person.fill")
-        title.text = news.title ?? ""
-        pubDate.text = news.pubDate ?? "" 
+    }
+    
+    func configureNewsCell(news: Results) {
+        title.text = news.title
+        pubDate.text = news.pubDate 
+        
+        guard let imageUrl = news.imageURL else {
+            icon.image = UIImage(systemName: "person.fill")
+            return
+        }
+        
+        icon.kf.setImage(with: URL(string: "\(imageUrl)"))
     }
     
     override func updateConstraints() {

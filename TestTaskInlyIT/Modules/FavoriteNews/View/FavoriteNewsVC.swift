@@ -21,7 +21,7 @@ class FavoriteNewsVC: UIViewController, FavoriteNewsProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Новости"
+        title = "Сохраненные статьи"
         view.addSubview(newsTableView)
         updateViewConstraints()
     }

@@ -4,6 +4,7 @@ import UIKit
 protocol ModuleBuilderProtocol {
     func createMainVC(title: String, image: UIImage?) -> UIViewController
     func createFavoriteNewsVC(title: String, image: UIImage?) -> UIViewController
+    func createFullNewVC(news: Results) -> UIViewController
 }
 
 class ModuleBuilder: ModuleBuilderProtocol {
@@ -25,6 +26,14 @@ class ModuleBuilder: ModuleBuilderProtocol {
         let presenter = FavoriteNewsPresenter(view: view, router: router)
         view.tabBarItem.title = title
         view.tabBarItem.image = image
+        view.presenter = presenter
+        return view
+    }
+    
+    func createFullNewVC(news: Results) -> UIViewController {
+        let view = FullNewsVC()
+        let router = FullNewsRouter(builder: self, viewController: view)
+        let presenter = FullNewsPresenter(view: view, router: router, news: news)
         view.presenter = presenter
         return view
     }
