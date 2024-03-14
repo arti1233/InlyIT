@@ -7,7 +7,7 @@ protocol BaseMainProtocol {
 }
 
 protocol MainRouterProtocol: BaseMainProtocol {
-    func showFullNewsVC(news: Results)
+    func showFullNewsVC(news: NewsModel)
 }
 
 class MainRouter: MainRouterProtocol {
@@ -19,7 +19,7 @@ class MainRouter: MainRouterProtocol {
         self.viewController = viewController
     }
     
-    func showFullNewsVC(news: Results) {
+    func showFullNewsVC(news: NewsModel) {
         guard let view = builder?.createFullNewVC(news: news),
               let viewController else { return }
         view.modalPresentationStyle = .popover

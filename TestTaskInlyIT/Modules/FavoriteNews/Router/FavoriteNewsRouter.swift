@@ -7,7 +7,7 @@ protocol BaseFavoriteNewsProtocol {
 }
 
 protocol FavoriteNewsRouterProtocol: BaseFavoriteNewsProtocol {
-   
+    func showFullNewsVC(news: NewsModel)
 }
 
 class FavoriteNewsRouter: FavoriteNewsRouterProtocol {
@@ -17,5 +17,12 @@ class FavoriteNewsRouter: FavoriteNewsRouterProtocol {
     init(builder: ModuleBuilderProtocol, viewController: UIViewController) {
         self.builder = builder
         self.viewController = viewController
+    }
+    
+    func showFullNewsVC(news: NewsModel) {
+        guard let view = builder?.createFullNewVC(news: news),
+              let viewController else { return }
+        view.modalPresentationStyle = .popover
+        viewController.present(view, animated: true)
     }
 }

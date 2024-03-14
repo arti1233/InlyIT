@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AE037ABF2BA1FD610067ED49 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = AE037ABE2BA1FD610067ED49 /* Kingfisher */; };
+		AE037AC12BA2E41D0067ED49 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE037AC02BA2E41D0067ED49 /* RealmService.swift */; };
 		AE5CD99F2BA0725A00968F97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD99E2BA0725A00968F97 /* AppDelegate.swift */; };
 		AE5CD9A12BA0725A00968F97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9A02BA0725A00968F97 /* SceneDelegate.swift */; };
 		AE5CD9A32BA0725A00968F97 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9A22BA0725A00968F97 /* MainVC.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE037AC02BA2E41D0067ED49 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		AE5CD99B2BA0725A00968F97 /* TestTaskInlyIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTaskInlyIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5CD99E2BA0725A00968F97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE5CD9A02BA0725A00968F97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		AE5CD99D2BA0725A00968F97 /* TestTaskInlyIT */ = {
 			isa = PBXGroup;
 			children = (
+				AE037AC02BA2E41D0067ED49 /* RealmService.swift */,
 				AE5CD9B52BA07ED700968F97 /* Router.swift */,
 				AE5CD9B32BA07E5400968F97 /* ModuleBuilder.swift */,
 				AE5CD9D52BA09BA200968F97 /* CustomTabBarController.swift */,
@@ -358,6 +361,7 @@
 				AE5CD9B62BA07ED700968F97 /* Router.swift in Sources */,
 				AE5CD9E92BA0A27900968F97 /* NewsModel.swift in Sources */,
 				AE5CD9A12BA0725A00968F97 /* SceneDelegate.swift in Sources */,
+				AE037AC12BA2E41D0067ED49 /* RealmService.swift in Sources */,
 				AE5CD9C12BA0896D00968F97 /* NewsCell.swift in Sources */,
 				AE5CD9D62BA09BA200968F97 /* CustomTabBarController.swift in Sources */,
 				AE5CD9B42BA07E5400968F97 /* ModuleBuilder.swift in Sources */,

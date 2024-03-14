@@ -3,7 +3,7 @@ import Foundation
 import SnapKit
 
 protocol FavoriteNewsProtocol: AnyObject {
-    
+    func reloadTableView()
 }
 
 class FavoriteNewsVC: UIViewController, FavoriteNewsProtocol {
@@ -14,6 +14,7 @@ class FavoriteNewsVC: UIViewController, FavoriteNewsProtocol {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.register(NewsCell.self, forCellReuseIdentifier: NewsCell.key)
+        tableView.showsVerticalScrollIndicator = true
         return tableView
     }()
     
@@ -46,11 +47,22 @@ extension FavoriteNewsVC: UITableViewDelegate {
 
 extension FavoriteNewsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        presenter.getAmountMenuPositions()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let newsCell = tableView.dequeueReusableCell(withIdentifier: NewsCell.key) as? NewsCell else { return UITableViewCell() }
+        newsCell.prepareForReuse()
+        newsCell.updateConstraints()
+        newsCell.selectionStyle = .none
+        newsCell.closureForSaveButton = {
+            self.presenter.addNewsToFavorite(indexPath: indexPath)
+        }
+        presenter.configureNewsCell(indexPath: indexPath, cell: newsCell)
         return newsCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.openFullNewVC(indexPath: indexPath)
     }
 }

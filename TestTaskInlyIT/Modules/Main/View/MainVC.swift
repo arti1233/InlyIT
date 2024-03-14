@@ -14,6 +14,7 @@ class MainVC: UIViewController, MainVCProtocol {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.register(NewsCell.self, forCellReuseIdentifier: NewsCell.key)
+        tableView.showsVerticalScrollIndicator = true
         return tableView
     }()
     
@@ -53,6 +54,10 @@ extension MainVC: UITableViewDataSource {
         guard let newsCell = tableView.dequeueReusableCell(withIdentifier: NewsCell.key) as? NewsCell else { return UITableViewCell() }
         newsCell.prepareForReuse()
         newsCell.updateConstraints()
+        newsCell.selectionStyle = .none
+        newsCell.closureForSaveButton = {
+            self.presenter.addNewsToFavorite(indexPath: indexPath)
+        }
         presenter.configureNewsCell(indexPath: indexPath, cell: newsCell)
         return newsCell
     }
@@ -63,7 +68,7 @@ extension MainVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == presenter.getAmountMenuPositions() - 1 && presenter.newsIsLoadIndicator() == false && presenter.getAmountMenuPositions() < presenter.getMaxNews() {
-            presenter.getNextPage()
+            // presenter.getNextPage()
         }
     }
 }

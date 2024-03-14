@@ -1,14 +1,15 @@
 import Foundation
 import UIKit
+import RealmSwift
 
 protocol MainPresenterProtocol: AnyObject {
     func configureNewsCell(indexPath: IndexPath, cell: NewsCell)
     func getAmountMenuPositions() -> Int
     func newsIsLoadIndicator() -> Bool
     func getNextPage()
-    func test()
     func openFullNewVC(indexPath: IndexPath)
     func getMaxNews() -> Int
+    func addNewsToFavorite(indexPath: IndexPath)
 }
 
 class MainPresenter: MainPresenterProtocol {
@@ -16,17 +17,38 @@ class MainPresenter: MainPresenterProtocol {
     private(set) var view: MainVCProtocol?
     private(set) var router: MainRouterProtocol?
     private(set) var alamofireProvider: AlamofireProtocol?
-    private(set) var news: [Results] = []
+    private(set) var realmService: RealmServiceProtocol?
+    private(set) var news: [NewsModel] = []
     private(set) var imageCache = NSCache<NSString, UIImage>()
     private(set) var nextPageId: String = ""
     private(set) var newsIsLoad = true
     private(set) var maxNews = 120
+    private(set) var notificationToken: NotificationToken?
     
-    required init(view: MainVCProtocol, router: MainRouterProtocol, alamofireProvider: AlamofireProtocol) {
+    required init(view: MainVCProtocol, router: MainRouterProtocol, alamofireProvider: AlamofireProtocol, realmService: RealmServiceProtocol) {
         self.view = view
         self.router = router
         self.alamofireProvider = alamofireProvider
+        self.realmService = realmService
         getNews()
+        realmService.realmUrl()
+        
+        notificationToken = realmService.getAllPositionInNews().observe { [weak self] (changes: RealmCollectionChange) in
+            guard let self else { return }
+            switch changes {
+            default :
+                view.reloadTableView()
+            }
+        }
+    }
+    
+    func addNewsToFavorite(indexPath: IndexPath) {
+        guard let realmService else { return }
+        if realmService.isThereElementInRealm(news: news[indexPath.row]) {
+            realmService.deleteObject(news: news[indexPath.row])
+        } else {
+            realmService.addPositionInFavorite(news: news[indexPath.row])
+        }
     }
     
     func getMaxNews() -> Int {
@@ -34,7 +56,8 @@ class MainPresenter: MainPresenterProtocol {
     }
     
     func configureNewsCell(indexPath: IndexPath, cell: NewsCell) {
-        cell.configureNewsCell(news: news[indexPath.row])
+        guard let realmService else { return }
+        cell.configureNewsCell(news: news[indexPath.row], newsIsFavorite: realmService.isThereElementInRealm(news: news[indexPath.row]))
     }
     
     func getAmountMenuPositions() -> Int {
@@ -45,9 +68,7 @@ class MainPresenter: MainPresenterProtocol {
         newsIsLoad
     }
     
-    func test() {
-        newsIsLoad = true
-    }
+
     
     func getNews() {
         guard let alamofireProvider else { return }

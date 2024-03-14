@@ -4,7 +4,7 @@ import SnapKit
 import Kingfisher
 
 protocol NewsCellProtocol {
-    func configureNewsCell(news: Results)
+    func configureNewsCell(news: NewsModel, newsIsFavorite: Bool)
 }
 
 class NewsCell: UITableViewCell, NewsCellProtocol {
@@ -43,14 +43,28 @@ class NewsCell: UITableViewCell, NewsCellProtocol {
         return label
     }()
     
+    private lazy var saveButton: UIButton = {
+        var button = UIButton(type: .system)
+        button.addTarget(self, action: #selector(saveNewsInFavorite), for: .touchUpInside)
+        button.setImage(UIImage(systemName: "heart"), for: .normal)
+        button.tintColor = .systemBlue
+        return button
+    }()
+    
+    var closureForSaveButton: (() -> ())?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         contentView.addSubview(mainView)
         mainView.addSubview(icon)
         mainView.addSubview(title)
         mainView.addSubview(pubDate)
+        mainView.addSubview(saveButton)
+    }
+    
+    @objc func saveNewsInFavorite(sender: UIButton) {
+        guard let closureForSaveButton else { return }
+        closureForSaveButton()
     }
     
     required init?(coder: NSCoder) {
@@ -61,19 +75,21 @@ class NewsCell: UITableViewCell, NewsCellProtocol {
         super.prepareForReuse()
         title.text = ""
         pubDate.text = ""
-        icon.image = UIImage(systemName: "person.fill")
+        icon.image = UIImage()
     }
     
-    func configureNewsCell(news: Results) {
+    func configureNewsCell(news: NewsModel, newsIsFavorite: Bool) {
         title.text = news.title
-        pubDate.text = news.pubDate 
+        pubDate.text = news.pubDate
+        newsIsFavorite ? saveButton.setImage(UIImage(systemName: "heart.fill"), for: .normal) : saveButton.setImage(UIImage(systemName: "heart"), for: .normal)
         
         guard let imageUrl = news.imageURL else {
-            icon.image = UIImage(systemName: "person.fill")
+            icon.image = UIImage(systemName: "photo")
             return
         }
         
-        icon.kf.setImage(with: URL(string: "\(imageUrl)"))
+        icon.kf.indicatorType = .activity
+        icon.kf.setImage(with: URL(string: imageUrl), placeholder: UIImage(systemName: "photo"))
     }
     
     override func updateConstraints() {
@@ -100,6 +116,10 @@ class NewsCell: UITableViewCell, NewsCellProtocol {
             $0.top.equalTo(title.snp.bottom).offset(8)
             $0.leading.equalTo(icon.snp.trailing).offset(32)
             $0.trailing.equalToSuperview().inset(24)
+        }
+        
+        saveButton.snp.makeConstraints {
+            $0.trailing.bottom.equalToSuperview().inset(16)
         }
     }
 }
