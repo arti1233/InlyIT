@@ -7,10 +7,11 @@ protocol NewsCellProtocol {
     func configureNewsCell(news: NewsModel, newsIsFavorite: Bool)
 }
 
-class NewsCell: UITableViewCell, NewsCellProtocol {
+final class NewsCell: UITableViewCell, NewsCellProtocol {
     
     static var key = "NewsCell"
-    
+
+//MARK: Properties
     private lazy var mainView: UIView = {
         var view = UIView()
         view.backgroundColor = .white
@@ -25,7 +26,7 @@ class NewsCell: UITableViewCell, NewsCellProtocol {
     private lazy var icon: UIImageView = {
         var view = UIImageView()
         view.contentMode = .scaleToFill
-        view.image = UIImage(systemName: "person.fill")
+        view.image = UIImage(systemName: "photo")
         return view
     }()
     
@@ -52,7 +53,8 @@ class NewsCell: UITableViewCell, NewsCellProtocol {
     }()
     
     var closureForSaveButton: (() -> ())?
-    
+ 
+//MARK: Lifecycle 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(mainView)
@@ -75,23 +77,18 @@ class NewsCell: UITableViewCell, NewsCellProtocol {
         super.prepareForReuse()
         title.text = ""
         pubDate.text = ""
-        icon.image = UIImage()
+        icon.image = UIImage(systemName: "photo")
     }
     
     func configureNewsCell(news: NewsModel, newsIsFavorite: Bool) {
         title.text = news.title
         pubDate.text = news.pubDate
         newsIsFavorite ? saveButton.setImage(UIImage(systemName: "heart.fill"), for: .normal) : saveButton.setImage(UIImage(systemName: "heart"), for: .normal)
-        
-        guard let imageUrl = news.imageURL else {
-            icon.image = UIImage(systemName: "photo")
-            return
-        }
-        
-        icon.kf.indicatorType = .activity
-        icon.kf.setImage(with: URL(string: imageUrl), placeholder: UIImage(systemName: "photo"))
+        guard let imageUrl = news.imageURL else { return }
+        icon.loadImage(imageUrl: imageUrl)
     }
-    
+
+//MARK: - Constraints
     override func updateConstraints() {
         super.updateConstraints()
         

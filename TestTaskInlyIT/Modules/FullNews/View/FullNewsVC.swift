@@ -7,16 +7,15 @@ protocol FullNewsProtocol {
     func configureVC(news: NewsModel)
 }
 
-class FullNewsVC: UIViewController, FullNewsProtocol {
+final class FullNewsVC: UIViewController, FullNewsProtocol {
     
-    var presenter: FullNewsPresenterProtocol!
-    
+//MARK: Properties
     private lazy var newsImage: UIImageView = {
         var view = UIImageView()
         view.contentMode = .scaleAspectFit
+        view.image = UIImage(systemName: "photo")
         return view
     }()
-    
     
     private lazy var titleLabel: UILabel = {
         var label = UILabel()
@@ -29,32 +28,32 @@ class FullNewsVC: UIViewController, FullNewsProtocol {
     private lazy var descriptionTextView: UITextView = {
         var textView = UITextView()
         textView.isEditable = false
+        textView.dataDetectorTypes = .link
         textView.font = UIFont.systemFont(ofSize: 19)
         return textView
     }()
     
+    var presenter: FullNewsPresenterProtocol!
+
+//MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .white
         view.addSubview(newsImage)
         view.addSubview(titleLabel)
         view.addSubview(descriptionTextView)
         updateViewConstraints()
     }
-    
+
+//MARK: Business Logic
     func configureVC(news: NewsModel) {
         titleLabel.text = news.title
-        descriptionTextView.text = "\(news.content ?? "") hsuhdgohuighsdfho \n asdhiuasdhfiuashfui \n ahsfiusfsd \n fdfsdfsfsfasda \n sdasfsdfsfhasfiuhasdifuauifhiuashdfu  hsuhdgohuighsdfho \n asdhiuasdhfiuashfui \n ahsfiusfsd \n fdfsdfsfsfasda \n sdasfsdfsfhasfiuhasdifuauifhiuashdfu  hsuhdgohuighsdfho \n asdhiuasdhfiuashfui \n ahsfiusfsd \n fdfsdfsfsfasda \n sdasfsdfsfhasfiuhasdifuauifhiuashdfu  hsuhdgohuighsdfho \n asdhiuasdhfiuashfui \n ahsfiusfsd \n fdfsdfsfsfasda \n sdasfsdfsfhasfiuhasdifuauifhiuashdfu  hsuhdgohuighsdfho \n asdhiuasdhfiuashfui \n ahsfiusfsd \n fdfsdfsfsfasda \n sdasfsdfsfhasfiuhasdifuauifhiuashdfu  hsuhdgohuighsdfho \n asdhiuasdhfiuashfui \n ahsfiusfsd \n fdfsdfsfsfasda \n sdasfsdfsfhasfiuhasdifuauifhiuashdfu  hsuhdgohuighsdfho \n asdhiuasdhfiuashfui \n ahsfiusfsd \n fdfsdfsfsfasda \n sdasfsdfsfhasfiuhasdifuauifhiuashdfu  hsuhdgohuighsdfho \n asdhiuasdhfiuashfui \n ahsfiusfsd \n fdfsdfsfsfasda \n sdasfsdfsfhasfiuhasdifuauifhiuashdfu  hsuhdgohuighsdfho \n asdhiuasdhfiuashfui \n ahsfiusfsd \n fdfsdfsfsfasda \n sdasfsdfsfhasfiuhasdifuauifhiuashdfu  hsuhdgohuighsdfho \n asdhiuasdhfiuashfui \n ahsfiusfsd \n fdfsdfsfsfasda \n sdasfsdfsfhasfiuhasdifuauifhiuashdfu  hsuhdgohuighsdfho \n asdhiuasdhfiuashfui \n ahsfiusfsd \n fdfsdfsfsfasda \n sdasfsdfsfhasfiuhasdifuauifhiuashdfu  hsuhdgohuighsdfho \n asdhiuasdhfiuashfui \n ahsfiusfsd \n fdfsdfsfsfasda \n sdasfsdfsfhasfiuhasdifuauifhiuashdfu \n \n\(news.pubDate)"
-        
-        guard let imageUrl = news.imageURL else { newsImage.image = UIImage(systemName: "photo")
-            return
-        }
-        
-        newsImage.kf.indicatorType = .activity
-        newsImage.kf.setImage(with: URL(string: imageUrl), placeholder: UIImage(systemName: "photo"))
+        descriptionTextView.text = "\(news.content ?? "") \n \n\(news.pubDate) \n \n\(news.link ?? "")"
+        guard let imageUrl = news.imageURL else { return }
+        newsImage.loadImage(imageUrl: imageUrl)
     }
     
+//MARK: Constraints
     override func updateViewConstraints() {
         super.updateViewConstraints()
         
@@ -74,5 +73,4 @@ class FullNewsVC: UIViewController, FullNewsProtocol {
             $0.top.equalTo(titleLabel.snp.bottom).offset(8)
         }
     }
-
 }

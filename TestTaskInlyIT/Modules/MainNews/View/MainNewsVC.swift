@@ -2,50 +2,55 @@ import UIKit
 import Foundation
 import SnapKit
 
-protocol MainVCProtocol: AnyObject {
+protocol MainNewsVCProtocol: AnyObject {
     func reloadTableView()
 }
 
-class MainVC: UIViewController, MainVCProtocol {
+final class MainNewsVC: UIViewController, MainNewsVCProtocol {
 
+//MARK: Properties
     private lazy var newsTableView: UITableView = {
         var tableView = UITableView()
-        tableView.delegate = self
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.separatorStyle = .none
         tableView.register(NewsCell.self, forCellReuseIdentifier: NewsCell.key)
         tableView.showsVerticalScrollIndicator = true
         return tableView
     }()
     
-    var presenter: MainPresenterProtocol!
+    var presenter: MainNewsPresenterProtocol!
     
+//MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Новости" 
+        title = "News" 
         view.addSubview(newsTableView)
         updateViewConstraints()
-    }
-    
-    override func updateViewConstraints() {
-        super.updateViewConstraints()
-        newsTableView.snp.makeConstraints {
-            $0.bottom.top.trailing.leading.equalToSuperview()
-            $0.top.equalTo(view.safeAreaInsets.top)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-        }
     }
     
     func reloadTableView() {
         newsTableView.reloadData()
     }
+    
+//MARK: - Constraints
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        newsTableView.snp.makeConstraints {
+            $0.bottom.top.trailing.leading.equalToSuperview()
+            $0.top.equalTo(view.safeAreaInsets.top)
+            $0.bottom.equalTo(view.safeAreaInsets.bottom)
+        }
+    }
 }
 
-extension MainVC: UITableViewDelegate {
+
+//MARK: - Extension UITableViewDataSource
+extension MainNewsVC: UITableViewDelegate {
     
 }
 
-extension MainVC: UITableViewDataSource {
+extension MainNewsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         presenter.getAmountMenuPositions()
     }
@@ -55,7 +60,8 @@ extension MainVC: UITableViewDataSource {
         newsCell.prepareForReuse()
         newsCell.updateConstraints()
         newsCell.selectionStyle = .none
-        newsCell.closureForSaveButton = {
+        newsCell.closureForSaveButton = { [weak self] in
+            guard let self else { return }
             self.presenter.addNewsToFavorite(indexPath: indexPath)
         }
         presenter.configureNewsCell(indexPath: indexPath, cell: newsCell)
@@ -67,8 +73,9 @@ extension MainVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // Conditions for loading a new news page
         if indexPath.row == presenter.getAmountMenuPositions() - 1 && presenter.newsIsLoadIndicator() == false && presenter.getAmountMenuPositions() < presenter.getMaxNews() {
-            // presenter.getNextPage()
+            presenter.getNextPage()
         }
     }
 }

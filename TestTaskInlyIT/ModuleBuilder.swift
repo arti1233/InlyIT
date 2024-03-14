@@ -7,14 +7,14 @@ protocol ModuleBuilderProtocol {
     func createFullNewVC(news: NewsModel) -> UIViewController
 }
 
-class ModuleBuilder: ModuleBuilderProtocol {
+final class ModuleBuilder: ModuleBuilderProtocol {
   
     func createMainVC(title: String, image: UIImage?) -> UIViewController {
-        let view = MainVC()
+        let view = MainNewsVC()
         let alamofire = AlamofireProvider()
-        let router = MainRouter(builder: self, viewController: view)
+        let router = MainNewsRouter(builder: self, viewController: view)
         let realmService = RealmService()
-        let presenter = MainPresenter(view: view, router: router, alamofireProvider: alamofire, realmService: realmService)
+        let presenter = MainNewsPresenter(view: view, router: router, alamofireProvider: alamofire, realmService: realmService)
         view.tabBarItem.title = title
         view.tabBarItem.image = image
         view.presenter = presenter

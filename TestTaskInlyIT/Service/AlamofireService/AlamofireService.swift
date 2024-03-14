@@ -1,12 +1,16 @@
 import Foundation
 import Alamofire
 
+struct Constants {
+    static var newsUrl = "https://newsdata.io/api/1/news?apikey=pub_398848ae5b1fb6e4db34a099b033237e361e8"
+}
+
 protocol AlamofireProtocol {
     func getNews(completion: @escaping(Result<NewsPage, Error>) -> Void)
     func getNextPage(nextPageId: String, completion: @escaping (Result<NewsPage, any Error>) -> Void)
 }
 
-class AlamofireProvider: AlamofireProtocol {
+final class AlamofireProvider: AlamofireProtocol {
     func getNews(completion: @escaping (Result<NewsPage, any Error>) -> Void) {
         let params = addParams(queryItems: ["language": "ru"])
         
@@ -31,7 +35,6 @@ class AlamofireProvider: AlamofireProtocol {
             }
         }
     }
-    
     
     private func addParams(queryItems: [String: String]) -> [String: String] {
         var params: [String: String] = [:]

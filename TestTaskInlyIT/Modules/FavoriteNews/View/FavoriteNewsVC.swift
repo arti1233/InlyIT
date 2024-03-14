@@ -6,8 +6,9 @@ protocol FavoriteNewsProtocol: AnyObject {
     func reloadTableView()
 }
 
-class FavoriteNewsVC: UIViewController, FavoriteNewsProtocol {
+final class FavoriteNewsVC: UIViewController, FavoriteNewsProtocol {
 
+//MARK: Properties
     private lazy var newsTableView: UITableView = {
         var tableView = UITableView()
         tableView.delegate = self
@@ -20,13 +21,19 @@ class FavoriteNewsVC: UIViewController, FavoriteNewsProtocol {
     
     var presenter: FavoriteNewsPresenterProtocol!
     
+//MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Сохраненные статьи"
+        title = "Favorite news"
         view.addSubview(newsTableView)
         updateViewConstraints()
     }
     
+    func reloadTableView() {
+        newsTableView.reloadData()
+    }
+    
+//MARK: Constraints
     override func updateViewConstraints() {
         super.updateViewConstraints()
         newsTableView.snp.makeConstraints {
@@ -35,12 +42,9 @@ class FavoriteNewsVC: UIViewController, FavoriteNewsProtocol {
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
-    
-    func reloadTableView() {
-        newsTableView.reloadData()
-    }
 }
 
+//MARK: - Extension
 extension FavoriteNewsVC: UITableViewDelegate {
     
 }

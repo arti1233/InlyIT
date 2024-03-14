@@ -1,16 +1,17 @@
 import Foundation
 import UIKit
 
-protocol BaseMainProtocol {
+protocol BaseMainNewsProtocol {
     var builder: ModuleBuilderProtocol? { get }
     var viewController: UIViewController? { get set }
 }
 
-protocol MainRouterProtocol: BaseMainProtocol {
+protocol MainNewsRouterProtocol: BaseMainNewsProtocol {
     func showFullNewsVC(news: NewsModel)
 }
 
-class MainRouter: MainRouterProtocol {
+final class MainNewsRouter: MainNewsRouterProtocol {
+    
     var builder: ModuleBuilderProtocol?
     var viewController: UIViewController?
     

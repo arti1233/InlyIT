@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 import RealmSwift
 
-protocol MainPresenterProtocol: AnyObject {
+protocol MainNewsPresenterProtocol: AnyObject {
     func configureNewsCell(indexPath: IndexPath, cell: NewsCell)
     func getAmountMenuPositions() -> Int
     func newsIsLoadIndicator() -> Bool
@@ -12,36 +12,35 @@ protocol MainPresenterProtocol: AnyObject {
     func addNewsToFavorite(indexPath: IndexPath)
 }
 
-class MainPresenter: MainPresenterProtocol {
-    
-    private(set) var view: MainVCProtocol?
-    private(set) var router: MainRouterProtocol?
+final class MainNewsPresenter: MainNewsPresenterProtocol {
+  
+//MARK: Properties
+    private(set) var view: MainNewsVCProtocol?
+    private(set) var router: MainNewsRouterProtocol?
     private(set) var alamofireProvider: AlamofireProtocol?
     private(set) var realmService: RealmServiceProtocol?
     private(set) var news: [NewsModel] = []
-    private(set) var imageCache = NSCache<NSString, UIImage>()
     private(set) var nextPageId: String = ""
     private(set) var newsIsLoad = true
     private(set) var maxNews = 120
     private(set) var notificationToken: NotificationToken?
     
-    required init(view: MainVCProtocol, router: MainRouterProtocol, alamofireProvider: AlamofireProtocol, realmService: RealmServiceProtocol) {
+    required init(view: MainNewsVCProtocol, router: MainNewsRouterProtocol, alamofireProvider: AlamofireProtocol, realmService: RealmServiceProtocol) {
         self.view = view
         self.router = router
         self.alamofireProvider = alamofireProvider
         self.realmService = realmService
         getNews()
-        realmService.realmUrl()
         
-        notificationToken = realmService.getAllPositionInNews().observe { [weak self] (changes: RealmCollectionChange) in
-            guard let self else { return }
+        notificationToken = realmService.getAllPositionInNews().observe { (changes: RealmCollectionChange) in
             switch changes {
             default :
                 view.reloadTableView()
             }
         }
     }
-    
+
+//MARK: - Business Logic
     func addNewsToFavorite(indexPath: IndexPath) {
         guard let realmService else { return }
         if realmService.isThereElementInRealm(news: news[indexPath.row]) {
@@ -67,9 +66,7 @@ class MainPresenter: MainPresenterProtocol {
     func newsIsLoadIndicator() -> Bool {
         newsIsLoad
     }
-    
 
-    
     func getNews() {
         guard let alamofireProvider else { return }
         alamofireProvider.getNews { [weak self] result in
@@ -77,15 +74,12 @@ class MainPresenter: MainPresenterProtocol {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let success):
-                    success.results.forEach {
-                        self.news.append($0)
-                    }
+                    success.results.forEach { self.news.append($0) }
                     self.nextPageId = success.nextPage
                     self.view?.reloadTableView()
                     self.newsIsLoad = false
-                    print("Пришли новости")
                 case .failure:
-                    print("НЕ пришли новости")
+                    print("Error loading news")
                 }
             }
         }
@@ -99,15 +93,12 @@ class MainPresenter: MainPresenterProtocol {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let success):
-                    success.results.forEach {
-                        self.news.append($0)
-                    }
+                    success.results.forEach { self.news.append($0) }
                     self.nextPageId = success.nextPage
                     self.newsIsLoad = false
                     self.view?.reloadTableView()
-                    print("Пришли новости next page")
                 case .failure:
-                    print("НЕ пришли новости next page")
+                    print("Error loading the next news page ")
                 }
             }
         }
@@ -117,5 +108,4 @@ class MainPresenter: MainPresenterProtocol {
         guard let router else { return }
         router.showFullNewsVC(news: news[indexPath.row])
     }
-    
 }

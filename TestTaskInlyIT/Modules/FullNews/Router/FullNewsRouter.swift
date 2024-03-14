@@ -10,7 +10,7 @@ protocol FullNewsRouterProtocol: BaseFullNewsProtocol {
    
 }
 
-class FullNewsRouter: FullNewsRouterProtocol {
+final class FullNewsRouter: FullNewsRouterProtocol {
     var builder: ModuleBuilderProtocol?
     var viewController: UIViewController?
     

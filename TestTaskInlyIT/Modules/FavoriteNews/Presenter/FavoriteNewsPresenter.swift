@@ -6,11 +6,11 @@ protocol FavoriteNewsPresenterProtocol: AnyObject {
     func addNewsToFavorite(indexPath: IndexPath)
     func configureNewsCell(indexPath: IndexPath, cell: NewsCell)
     func openFullNewVC(indexPath: IndexPath)
-    
 }
 
-class FavoriteNewsPresenter: FavoriteNewsPresenterProtocol {
+final class FavoriteNewsPresenter: FavoriteNewsPresenterProtocol {
 
+//MARK: Properties
     private(set) var view: FavoriteNewsProtocol?
     private(set) var router: FavoriteNewsRouterProtocol?
     private(set) var realmService: RealmServiceProtocol?
@@ -32,7 +32,8 @@ class FavoriteNewsPresenter: FavoriteNewsPresenterProtocol {
             }
         }
     }
-    
+  
+//MARK: - Business Logic
     func getAmountMenuPositions() -> Int {
         return news.count
     }

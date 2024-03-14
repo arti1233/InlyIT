@@ -10,7 +10,7 @@ protocol FavoriteNewsRouterProtocol: BaseFavoriteNewsProtocol {
     func showFullNewsVC(news: NewsModel)
 }
 
-class FavoriteNewsRouter: FavoriteNewsRouterProtocol {
+final class FavoriteNewsRouter: FavoriteNewsRouterProtocol {
     var builder: ModuleBuilderProtocol?
     var viewController: UIViewController?
     

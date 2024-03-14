@@ -9,15 +9,16 @@
 /* Begin PBXBuildFile section */
 		AE037ABF2BA1FD610067ED49 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = AE037ABE2BA1FD610067ED49 /* Kingfisher */; };
 		AE037AC12BA2E41D0067ED49 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE037AC02BA2E41D0067ED49 /* RealmService.swift */; };
+		AE037AC52BA31B620067ED49 /* KingfisherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE037AC42BA31B620067ED49 /* KingfisherService.swift */; };
 		AE5CD99F2BA0725A00968F97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD99E2BA0725A00968F97 /* AppDelegate.swift */; };
 		AE5CD9A12BA0725A00968F97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9A02BA0725A00968F97 /* SceneDelegate.swift */; };
-		AE5CD9A32BA0725A00968F97 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9A22BA0725A00968F97 /* MainVC.swift */; };
+		AE5CD9A32BA0725A00968F97 /* MainNewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9A22BA0725A00968F97 /* MainNewsVC.swift */; };
 		AE5CD9A82BA0725B00968F97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE5CD9A72BA0725B00968F97 /* Assets.xcassets */; };
 		AE5CD9AB2BA0725B00968F97 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AE5CD9AA2BA0725B00968F97 /* Base */; };
 		AE5CD9B42BA07E5400968F97 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9B32BA07E5400968F97 /* ModuleBuilder.swift */; };
 		AE5CD9B62BA07ED700968F97 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9B52BA07ED700968F97 /* Router.swift */; };
-		AE5CD9BB2BA07FD300968F97 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9BA2BA07FD300968F97 /* MainPresenter.swift */; };
-		AE5CD9BE2BA07FF400968F97 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9BD2BA07FF400968F97 /* MainRouter.swift */; };
+		AE5CD9BB2BA07FD300968F97 /* MainNewsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9BA2BA07FD300968F97 /* MainNewsPresenter.swift */; };
+		AE5CD9BE2BA07FF400968F97 /* MainNewsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9BD2BA07FF400968F97 /* MainNewsRouter.swift */; };
 		AE5CD9C12BA0896D00968F97 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9C02BA0896D00968F97 /* NewsCell.swift */; };
 		AE5CD9C52BA08B6E00968F97 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AE5CD9C42BA08B6E00968F97 /* SnapKit */; };
 		AE5CD9C72BA08B6E00968F97 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = AE5CD9C62BA08B6E00968F97 /* SnapKit-Dynamic */; };
@@ -31,7 +32,6 @@
 		AE5CD9E02BA0A1F500968F97 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AE5CD9DF2BA0A1F500968F97 /* Alamofire */; };
 		AE5CD9E22BA0A1F500968F97 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = AE5CD9E12BA0A1F500968F97 /* AlamofireDynamic */; };
 		AE5CD9E42BA0A21700968F97 /* AlamofireService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9E32BA0A21700968F97 /* AlamofireService.swift */; };
-		AE5CD9E62BA0A23800968F97 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9E52BA0A23800968F97 /* Constants.swift */; };
 		AE5CD9E92BA0A27900968F97 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CD9E82BA0A27900968F97 /* NewsModel.swift */; };
 		AE5CD9F02BA0A43700968F97 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AE5CD9EF2BA0A43700968F97 /* Realm */; };
 		AE5CD9F22BA0A43700968F97 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AE5CD9F12BA0A43700968F97 /* RealmSwift */; };
@@ -39,17 +39,18 @@
 
 /* Begin PBXFileReference section */
 		AE037AC02BA2E41D0067ED49 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		AE037AC42BA31B620067ED49 /* KingfisherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingfisherService.swift; sourceTree = "<group>"; };
 		AE5CD99B2BA0725A00968F97 /* TestTaskInlyIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTaskInlyIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5CD99E2BA0725A00968F97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE5CD9A02BA0725A00968F97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AE5CD9A22BA0725A00968F97 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		AE5CD9A22BA0725A00968F97 /* MainNewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNewsVC.swift; sourceTree = "<group>"; };
 		AE5CD9A72BA0725B00968F97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE5CD9AA2BA0725B00968F97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE5CD9AC2BA0725B00968F97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE5CD9B32BA07E5400968F97 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 		AE5CD9B52BA07ED700968F97 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		AE5CD9BA2BA07FD300968F97 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
-		AE5CD9BD2BA07FF400968F97 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		AE5CD9BA2BA07FD300968F97 /* MainNewsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNewsPresenter.swift; sourceTree = "<group>"; };
+		AE5CD9BD2BA07FF400968F97 /* MainNewsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNewsRouter.swift; sourceTree = "<group>"; };
 		AE5CD9C02BA0896D00968F97 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		AE5CD9C82BA0961200968F97 /* FullNewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullNewsVC.swift; sourceTree = "<group>"; };
 		AE5CD9CB2BA0989800968F97 /* FavoriteNewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNewsVC.swift; sourceTree = "<group>"; };
@@ -59,7 +60,6 @@
 		AE5CD9D82BA09CAE00968F97 /* FullNewsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullNewsPresenter.swift; sourceTree = "<group>"; };
 		AE5CD9DA2BA09CC000968F97 /* FullNewsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullNewsRouter.swift; sourceTree = "<group>"; };
 		AE5CD9E32BA0A21700968F97 /* AlamofireService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireService.swift; sourceTree = "<group>"; };
-		AE5CD9E52BA0A23800968F97 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AE5CD9E82BA0A27900968F97 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +81,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE037AC22BA315BE0067ED49 /* RealmService */ = {
+			isa = PBXGroup;
+			children = (
+				AE037AC02BA2E41D0067ED49 /* RealmService.swift */,
+			);
+			path = RealmService;
+			sourceTree = "<group>";
+		};
+		AE037AC32BA315E00067ED49 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				AE5CD9E72BA0A24800968F97 /* AlamofireService */,
+				AE037AC22BA315BE0067ED49 /* RealmService */,
+				AE037AC62BA31D740067ED49 /* KingfisherService */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		AE037AC62BA31D740067ED49 /* KingfisherService */ = {
+			isa = PBXGroup;
+			children = (
+				AE037AC42BA31B620067ED49 /* KingfisherService.swift */,
+			);
+			path = KingfisherService;
+			sourceTree = "<group>";
+		};
 		AE5CD9922BA0725A00968F97 = {
 			isa = PBXGroup;
 			children = (
@@ -100,12 +126,11 @@
 		AE5CD99D2BA0725A00968F97 /* TestTaskInlyIT */ = {
 			isa = PBXGroup;
 			children = (
-				AE037AC02BA2E41D0067ED49 /* RealmService.swift */,
+				AE037AC32BA315E00067ED49 /* Service */,
 				AE5CD9B52BA07ED700968F97 /* Router.swift */,
 				AE5CD9B32BA07E5400968F97 /* ModuleBuilder.swift */,
 				AE5CD9D52BA09BA200968F97 /* CustomTabBarController.swift */,
 				AE5CD9EA2BA0A27E00968F97 /* Models */,
-				AE5CD9E72BA0A24800968F97 /* Alamofire */,
 				AE5CD9B22BA07C8D00968F97 /* Delegate */,
 				AE5CD9B72BA07F9B00968F97 /* Modules */,
 				AE5CD9A72BA0725B00968F97 /* Assets.xcassets */,
@@ -127,14 +152,14 @@
 		AE5CD9B72BA07F9B00968F97 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				AE5CD9B82BA07FA300968F97 /* Main */,
+				AE5CD9B82BA07FA300968F97 /* MainNews */,
 				AE5CD9CA2BA0984C00968F97 /* FullNews */,
 				AE5CD9CD2BA0989C00968F97 /* FavoriteNews */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		AE5CD9B82BA07FA300968F97 /* Main */ = {
+		AE5CD9B82BA07FA300968F97 /* MainNews */ = {
 			isa = PBXGroup;
 			children = (
 				AE5CD9B92BA07FB600968F97 /* View */,
@@ -142,13 +167,13 @@
 				AE5CD9BF2BA07FFA00968F97 /* Router */,
 				AE5CD9C22BA0897B00968F97 /* Cell */,
 			);
-			path = Main;
+			path = MainNews;
 			sourceTree = "<group>";
 		};
 		AE5CD9B92BA07FB600968F97 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AE5CD9A22BA0725A00968F97 /* MainVC.swift */,
+				AE5CD9A22BA0725A00968F97 /* MainNewsVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -156,7 +181,7 @@
 		AE5CD9BC2BA07FD900968F97 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				AE5CD9BA2BA07FD300968F97 /* MainPresenter.swift */,
+				AE5CD9BA2BA07FD300968F97 /* MainNewsPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -164,7 +189,7 @@
 		AE5CD9BF2BA07FFA00968F97 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				AE5CD9BD2BA07FF400968F97 /* MainRouter.swift */,
+				AE5CD9BD2BA07FF400968F97 /* MainNewsRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -245,13 +270,12 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		AE5CD9E72BA0A24800968F97 /* Alamofire */ = {
+		AE5CD9E72BA0A24800968F97 /* AlamofireService */ = {
 			isa = PBXGroup;
 			children = (
 				AE5CD9E32BA0A21700968F97 /* AlamofireService.swift */,
-				AE5CD9E52BA0A23800968F97 /* Constants.swift */,
 			);
-			path = Alamofire;
+			path = AlamofireService;
 			sourceTree = "<group>";
 		};
 		AE5CD9EA2BA0A27E00968F97 /* Models */ = {
@@ -348,18 +372,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE5CD9D02BA0990000968F97 /* FavoriteNewsPresenter.swift in Sources */,
-				AE5CD9E62BA0A23800968F97 /* Constants.swift in Sources */,
 				AE5CD9DB2BA09CC000968F97 /* FullNewsRouter.swift in Sources */,
 				AE5CD9E42BA0A21700968F97 /* AlamofireService.swift in Sources */,
-				AE5CD9A32BA0725A00968F97 /* MainVC.swift in Sources */,
-				AE5CD9BE2BA07FF400968F97 /* MainRouter.swift in Sources */,
-				AE5CD9BB2BA07FD300968F97 /* MainPresenter.swift in Sources */,
+				AE5CD9A32BA0725A00968F97 /* MainNewsVC.swift in Sources */,
+				AE5CD9BE2BA07FF400968F97 /* MainNewsRouter.swift in Sources */,
+				AE5CD9BB2BA07FD300968F97 /* MainNewsPresenter.swift in Sources */,
 				AE5CD9C92BA0961200968F97 /* FullNewsVC.swift in Sources */,
 				AE5CD9D22BA0990C00968F97 /* FavoriteNewsRouter.swift in Sources */,
 				AE5CD9D92BA09CAE00968F97 /* FullNewsPresenter.swift in Sources */,
 				AE5CD99F2BA0725A00968F97 /* AppDelegate.swift in Sources */,
 				AE5CD9B62BA07ED700968F97 /* Router.swift in Sources */,
 				AE5CD9E92BA0A27900968F97 /* NewsModel.swift in Sources */,
+				AE037AC52BA31B620067ED49 /* KingfisherService.swift in Sources */,
 				AE5CD9A12BA0725A00968F97 /* SceneDelegate.swift in Sources */,
 				AE037AC12BA2E41D0067ED49 /* RealmService.swift in Sources */,
 				AE5CD9C12BA0896D00968F97 /* NewsCell.swift in Sources */,
@@ -514,8 +538,8 @@
 				INFOPLIST_FILE = TestTaskInlyIT/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -541,8 +565,8 @@
 				INFOPLIST_FILE = TestTaskInlyIT/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

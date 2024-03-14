@@ -1,13 +1,13 @@
 import Foundation
 
-struct NewsPage: Codable {
+struct NewsPage: Decodable {
     let status: String
     let totalResults: Int
     let results: [NewsModel]
     let nextPage: String
 }
 
-struct NewsModel: Codable {
+struct NewsModel: Decodable {
     let title: String
     let link: String?
     let content: String?

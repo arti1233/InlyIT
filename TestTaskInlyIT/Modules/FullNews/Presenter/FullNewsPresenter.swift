@@ -2,8 +2,9 @@ protocol FullNewsPresenterProtocol: AnyObject {
     
 }
 
-class FullNewsPresenter: FullNewsPresenterProtocol {
+final class FullNewsPresenter: FullNewsPresenterProtocol {
 
+//MARK: Properties
     private(set) var view: FullNewsProtocol?
     private(set) var router: FullNewsRouterProtocol?
     private(set) var news: NewsModel
@@ -13,7 +14,5 @@ class FullNewsPresenter: FullNewsPresenterProtocol {
         self.router = router
         self.news = news
         view.configureVC(news: news)
-        print(news.imageURL)
     }
-    
 }
