@@ -1,4 +1,5 @@
-#InlyIT
+InlyIT
+
 Test task for InlyIT
 
 Небольшое демо приложения. 
