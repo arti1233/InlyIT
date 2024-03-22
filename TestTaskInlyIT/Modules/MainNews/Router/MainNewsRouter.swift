@@ -23,7 +23,7 @@ final class MainNewsRouter: MainNewsRouterProtocol {
     func showFullNewsVC(news: NewsModel) {
         guard let view = builder?.createFullNewVC(news: news),
               let viewController else { return }
-        view.modalPresentationStyle = .popover
+        view.modalPresentationStyle = .automatic
         viewController.present(view, animated: true)
     }
 }
